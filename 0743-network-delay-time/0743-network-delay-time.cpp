@@ -2,7 +2,8 @@ class Solution {
 public:
     int networkDelayTime(vector<vector<int>>& times, int n, int k) {
         
-        //Preparing adj List
+        //Preparing adj List\
+        // bhai pahela saraa pairs bana laaa
         unordered_map<int,list<pair<int,int>>> adj;
         for(int i=0; i<times.size(); i++) {
             int u = times[i][0];
@@ -19,11 +20,12 @@ public:
         
         pq.push({0,k});
         distance[k] = 0;
-        
+        // ek ek koo uthaaa aur check kar meri jaan
         while(!pq.empty())  {
-            
+            // upar vala nikal pahela
             auto it = pq.top();
             pq.pop();
+            ///1,2,3 ka format ma hoga uska use kar
             int dist = it.first;
             int node = it.second;
             
@@ -43,9 +45,11 @@ public:
         int mx = -1;
         for(int i=0; i<n+1; i++)  {
             // cout<<i<<" = "<<distance[i]<<"\n";
+            // agar max haa bhi toh matlab voh un visited haa
             if(distance[i]==INT_MAX)    {
                 return -1;
             }
+            // last ma max vala utha laa
             mx = max(distance[i],mx);
         }
         
