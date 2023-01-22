@@ -3,29 +3,34 @@ public:
     
     int getLiveNeigh(vector<vector<int>>& temp, int i, int j, int m, int n) {
         int liveNeigh = 0;
+        //left hand vala ka liya
         if(i > 0) {
             if(temp[i-1][j] == 1) {
                 liveNeigh++;
             }
         } 
+        //aga vala ka liya
         
         if(i < m-1) {
             if(temp[i+1][j] == 1) {
                 liveNeigh++;
             }
         } 
+        //nicha vala ka liya
         
         if(j > 0) {
             if(temp[i][j-1] == 1) {
                 liveNeigh++;
             }
         }
+        //exact upper vala ka liya
         
         if(j < n-1) {
             if(temp[i][j+1] == 1) {
                 liveNeigh++;
             }
         } 
+        //diagnol ka liya
         
         if(i > 0 && j > 0) {
             if(temp[i-1][j-1] == 1) {
