@@ -1,0 +1,37 @@
+class Solution {
+public:
+    long long distinctNames(vector<string>& ideas) {
+      unordered_set<string> t(ideas.begin(), ideas.end());
+     unordered_map<char, unordered_map<char,int>>m;
+     // now running loop to get distinct character
+      for(auto&str:t){
+          string s = str;
+         char prev = s[0];
+        for(char c = 'a'; c <= 'z'; ++c){
+            s[0]= c;
+       // finding the elsemt
+       if(t.find(s)==t.end()){
+           ++m[c][prev];
+       }
+            
+        }  
+      }
+          // now running loop to get distinct character
+        long long ans = 0;
+      for(auto&str:t){
+          string s = str;
+         char prev = s[0];
+        for(char c = 'a';c<='z';++c){
+            s[0]= c;
+       // finding the elsemt
+       if(t.find(s)==t.end()){
+          ans += m[prev][c];
+       }
+        }
+      } 
+          return ans;
+        
+        
+        
+    }
+};
